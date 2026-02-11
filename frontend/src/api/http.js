@@ -41,7 +41,6 @@ export {
     get,
     post,
     patch,
-    priceApi,
     loginApi,
     logoutApi,
     registerApi,

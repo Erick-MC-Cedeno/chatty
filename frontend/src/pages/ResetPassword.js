@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useMemo } from 'react'
 import {
   Typography,
   Box,
@@ -19,7 +19,8 @@ import { post, resetPasswordApi } from '../api/http'
 import { useLocation, useHistory } from 'react-router-dom'
 
 function useQuery() {
-  return new URLSearchParams(useLocation().search)
+  const { search } = useLocation()
+  return useMemo(() => new URLSearchParams(search), [search])
 }
 
 export default function ResetPassword() {
@@ -42,7 +43,7 @@ export default function ResetPassword() {
     const qToken = query.get('token') || ''
     setEmail(qEmail)
     setToken(qToken)
-  }, [])
+  }, [query])
 
   useEffect(() => {
     return () => {

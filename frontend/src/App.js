@@ -49,14 +49,12 @@ export default function App() {
                             <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
                                 <Switch>
                                     <PrivateRoute exact path='/' component={Home} />
-                                    <PrivateRoute exact path="/wallet/:walletId" component={Wallet} />
                                     <PrivateRoute exact path='/settings' component={Settings}/>
                                     <PrivateRoute exact path='/verifyemail' component={EmailVerificationComponent}/>
                                     <PublicRoute exact path='/login' component={Login} />
                                     <PublicRoute exact path='/register' component={Register} />
                                     <PublicRoute exact path='/forgot-password' component={ForgotPassword} />
                                     <PublicRoute exact path='/reset-password' component={ResetPassword} />
-                                    <PublicRoute exact path='/nextmain' component={Nextmain}/>
                                     <PublicRoute exact path='/verifytoken' component={VerifyToken} />
                                     <PublicRoute exact path='/resendtoken' component={ResendTokenForm}/>
                                 </Switch>

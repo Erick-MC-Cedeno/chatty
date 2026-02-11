@@ -22,10 +22,10 @@ import {
 import { useHistory } from 'react-router-dom';
 import {
   ArrowDropDown as ArrowDropDownIcon,
-  SupportAgent as SupportAgentIcon,
-  QrCode as QrCodeIcon,
+  RssFeed as RssFeedIcon,
+  LiveTv as LiveTvIcon,
+  ChatBubbleOutline as ChatIcon,
   Menu as MenuIcon,
-  AccountBalanceWallet as WalletIcon,
   Settings as SettingsIcon,
   ExitToApp as LogoutIcon,
 } from '@mui/icons-material';
@@ -97,8 +97,6 @@ function DashboardContent() {
       // Trigger server logout but don't wait for it — reload immediately for instant UX
       logoutUser().catch(() => {});
       window.location.reload();
-    } else if (action === 'Mis billeteras') {
-      history.push('/wallets');
     } else if (action === 'Settings') {
       history.push('/settings');
     }
@@ -116,15 +114,14 @@ function DashboardContent() {
 
   const settings = [
     { label: `Hi, ${auth.firstName}`, icon: null },
-    { label: 'Mis billeteras', icon: <WalletIcon sx={{ mr: 1 }} /> },
     { label: 'Settings', icon: <SettingsIcon sx={{ mr: 1 }} /> },
     { label: 'Logout', icon: <LogoutIcon sx={{ mr: 1 }} /> },
   ];
 
   const navItems = [
-    { href: '/welcome', label: 'Crypto Soporte', Icon: SupportAgentIcon },
-    { href: '/providers', label: 'Vender P2P', Icon: QrCodeIcon },
-    { href: '/create', label: 'Proveedor P2P', Icon: QrCodeIcon },
+    { href: '/welcome', label: 'Feed', Icon: RssFeedIcon },
+    { href: '/providers', label: 'Live', Icon: LiveTvIcon },
+    { href: '/create', label: 'chat', Icon: ChatIcon },
   ];
 
   const renderNavLinks = () => (
