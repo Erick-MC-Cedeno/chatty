@@ -8,9 +8,9 @@ export enum MessageType {
 }
 
 export class CreateMessageDto {
-  @IsOptional()
   @IsString()
-  content?: string;
+  @IsNotEmpty()
+  content: string;
 
   @IsEnum(MessageType)
   type: MessageType;
@@ -23,8 +23,8 @@ export class CreateMessageDto {
   @IsString()
   multimediaUrl?: string;
 
-  // Optional: allow passing senderId when not using auth middleware
-  @IsOptional()
+  
   @IsString()
-  senderId?: string;
+  @IsNotEmpty()
+  senderId: string;
 }

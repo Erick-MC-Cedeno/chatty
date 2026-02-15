@@ -13,7 +13,7 @@ export class CreateMultimediaDto {
   @IsString()
   description?: string;
 
-  @IsOptional()
   @IsString()
-  ownerId?: string;
+  @IsNotEmpty()
+  ownerId: string;
 }
